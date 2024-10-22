@@ -1,11 +1,19 @@
 package com.itschool.ComicBooksDigitalRenting.models.entities;
 
-public enum Genre {
-    ACTION,
-    ROMANCE,
-    HORROR,
-    COMEDY,
-    STREET_LEVEL,
-    SPACE_LEVEL;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
 
+@Entity
+@Data
+public class Genre {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer action;
+    private String romance;
+    private String horror;
+    private String comedy;
 }

@@ -19,10 +19,10 @@ public class ComicBook {
     private String authors;
     @Column(name = "isbn")
     private String isbn;
-    @Column(name = "illustrators")
-    private String illustrators;
+    @Column(name = "superhero")
+    private String superhero;
     @Column(name = "copies_available")
-    private Integer copiesAvailable;
+    private int copiesAvailable;
     @Column(name = "publisher")
     private String publisher;
     @Column(name = "publication_date")
@@ -34,6 +34,6 @@ public class ComicBook {
     @Column(name = "genre")
     private Enum genre;
     @Column(name = "rental_price")
-    private int rentalPrice;
+    private double rentalPrice;
 
 }

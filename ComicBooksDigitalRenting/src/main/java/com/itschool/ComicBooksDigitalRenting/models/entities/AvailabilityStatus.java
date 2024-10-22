@@ -1,7 +1,19 @@
 package com.itschool.ComicBooksDigitalRenting.models.entities;
 
-public enum AvailabilityStatus {
-    AVAILABLE,
-    RENTED,
-    RESERVED
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Entity
+@Data
+public class AvailabilityStatus {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String available;
+    private String rented;
+    private String reserved;
 }
