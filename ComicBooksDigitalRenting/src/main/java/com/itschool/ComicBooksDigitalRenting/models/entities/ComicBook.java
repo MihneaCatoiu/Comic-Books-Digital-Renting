@@ -30,9 +30,9 @@ public class ComicBook {
     @Column(name = "synopsis")
     private String synopsis;
     @Column(name = "availability_status")
-    private Enum availabilityStatus;
+    private String availabilityStatus;
     @Column(name = "genre")
-    private Enum genre;
+    private String genre;
     @Column(name = "rental_price")
     private double rentalPrice;
 
