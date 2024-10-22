@@ -55,7 +55,7 @@ public class ComicBookServiceImpl implements ComicBookService {
     }
     @Override
     public ResponseComicBookDTO updateComicBookCopies(Long comicBookId, int newCopiesAvailable) {
-        ComicBook comicBook = comicBookRepository.findById(comicBookId).orElseThrow(() -> new ComicBookNotFoundException("The comic book with the id " + comicBookId + "was not found!"));
+        ComicBook comicBook = comicBookRepository.findById(comicBookId).orElseThrow(() -> new ComicBookNotFoundException("The comic book with the id " + comicBookId + " was not found!"));
         comicBook.setCopiesAvailable(newCopiesAvailable);
         ComicBook updateComicBook = comicBookRepository.save(comicBook);
         log.info("Updated comic books copies for id {}", updateComicBook.getId());
@@ -74,6 +74,11 @@ public class ComicBookServiceImpl implements ComicBookService {
         return comicBooks.stream()
                 .map(comicBook -> objectMapper.convertValue(comicBook, ResponseComicBookDTO.class))
                 .toList();
+    }
+
+    @Override
+    public void deleteComicBookById(Long id) {
+        comicBookRepository.deleteById(id);
     }
 }
 

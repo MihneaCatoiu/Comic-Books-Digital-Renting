@@ -18,4 +18,7 @@ public interface ComicBookService {
     ResponseComicBookDTO updateComicBookCopies(Long comicBookId, int newCopiesAvailable);
 
     List<ResponseComicBookDTO> getComicBooks(String title, String author, String genre);
+
+    void deleteComicBookById(Long id);
+
 }
