@@ -1,6 +1,9 @@
 package com.itschool.ComicBooksDigitalRenting.integration_tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestComicBookDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestCustomerDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestRentRecordDTO;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -33,13 +36,33 @@ public class RentRecordControllerTest {
 
     @Test
     public void testCreateRentRecordShouldPass() throws Exception {
-        RequestRentRecordDTO requestRentRecordDTO = new RequestRentRecordDTO();
-        requestRentRecordDTO.setComicBookId(1L);
-        requestRentRecordDTO.setCustomerId(1L);
+        RequestComicBookDTO requestComicBookDTO = new RequestComicBookDTO();
+        requestComicBookDTO.setTitle("test title");
+        requestComicBookDTO.setSuperhero("test sperhero");
+        requestComicBookDTO.setCopiesAvailable(5);
+
+        mockMvc.perform(post("/api/comic-books")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestComicBookDTO)))
+                .andExpect(status().isOk());
+
+        RequestCustomerDTO requestCustomerDTO = new RequestCustomerDTO();
+        requestCustomerDTO.setFirstName("first name");
+        requestCustomerDTO.setLastName("last name");
+        requestCustomerDTO.setEmail("test@gmial.com");
+
+        mockMvc.perform(post("/api/customers")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(requestCustomerDTO)))
+                .andExpect(status().isOk());
+
+        RentRecordDTO rentRecordDTO = new RentRecordDTO();
+        rentRecordDTO.setComicBookId(1L);
+        rentRecordDTO.setCustomerId(1L);
 
         mockMvc.perform(post("/api/rent-records")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(requestRentRecordDTO)))
-                .andExpect(status().isOk());
+                        .content(objectMapper.writeValueAsString(rentRecordDTO)))
+                .andExpect(status().isNoContent());
     }
 }

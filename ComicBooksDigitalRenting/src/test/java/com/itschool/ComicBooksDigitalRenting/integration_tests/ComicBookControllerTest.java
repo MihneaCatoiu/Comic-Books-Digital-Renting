@@ -38,7 +38,7 @@ public class ComicBookControllerTest {
         requestComicBookDTO.setSuperhero("superhero");
         requestComicBookDTO.setCopiesAvailable(10);
 
-        mockMvc.perform(post("/api/comicbooks")
+        mockMvc.perform(post("/api/comic-books")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(requestComicBookDTO)))
                 .andExpect(status().isOk());

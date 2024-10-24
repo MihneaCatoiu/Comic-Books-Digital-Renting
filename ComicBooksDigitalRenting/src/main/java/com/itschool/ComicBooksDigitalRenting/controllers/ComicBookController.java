@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RequestMapping("/api/comicbooks")
+@RequestMapping("/api/comic-books")
 @RestController
 public class ComicBookController {
 

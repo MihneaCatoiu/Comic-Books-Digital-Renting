@@ -19,7 +19,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class RentRecordServiceImpl implements RentRecordService{
+public class RentRecordServiceImpl implements RentRecordService {
 
     private final ComicBookRepository comicBookRepository;
     private final CustomerRepository customerRepository;
@@ -30,6 +30,7 @@ public class RentRecordServiceImpl implements RentRecordService{
         this.customerRepository = customerRepository;
         this.rentRecordRepository = rentRecordRepository;
     }
+
     @Transactional
     @Override
     public void rentComicBook(RentRecordDTO rentRecordDTO) {
@@ -40,7 +41,7 @@ public class RentRecordServiceImpl implements RentRecordService{
         }
 
         Customer customer = customerRepository.findById(rentRecordDTO.getCustomerId())
-                .orElseThrow(() -> new CustomerNotFoundException("Customer not fund!"));
+                .orElseThrow(() -> new CustomerNotFoundException("Customer not found!"));
 
         RentRecord rentRecord = new RentRecord();
         rentRecord.setComicBook(comicBook);
@@ -55,22 +56,18 @@ public class RentRecordServiceImpl implements RentRecordService{
         log.info("Rent record updated");
     }
 
-    @Override
     public void deleteRentRecordById(Long id) {
 
     }
 
-    @Override
     public List<ResponseRentRecordDTO> getRentRecords(Long customerId, Long comicBookId) {
         return List.of();
     }
 
-    @Override
     public Object getRentRecords() {
         return null;
     }
 
-    @Override
     public ResponseRentRecordDTO updateRentRecords(Long id, Object rentRecords) {
         return null;
     }
