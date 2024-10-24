@@ -13,7 +13,7 @@ public class ComicBookDTO {
     private String isbn;
     private int copiesAvailable;
     private String publisher;
-    private LocalDate publicationDate;
+    private String publicationDate;
     private String synopsis;
     private String availabilityStatus;
     private String genre;

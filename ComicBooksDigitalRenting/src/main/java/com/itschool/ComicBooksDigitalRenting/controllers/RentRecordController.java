@@ -17,8 +17,8 @@ public class RentRecordController {
         this.rentRecordService = rentRecordService;
     }
 
-    @PostMapping("/api/renting")
-    public ResponseEntity<ResponseComicBookDTO> rentComicBook(@RequestBody RentRecordDTO rentRecordDTO) {
+    @PostMapping("/api/rent-records")
+    public ResponseEntity<ResponseComicBookDTO> createRentComicBook(@RequestBody RentRecordDTO rentRecordDTO) {
         rentRecordService.rentComicBook(rentRecordDTO);
         return ResponseEntity.noContent().build();
     }

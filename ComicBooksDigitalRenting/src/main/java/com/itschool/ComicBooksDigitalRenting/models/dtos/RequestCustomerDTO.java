@@ -12,6 +12,6 @@ public class RequestCustomerDTO {
     @NotBlank(message = "This field is mandatory")
     private String lastName;
     @NotBlank(message = "This field is mandatory")
-    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$\", message = \"Email should be valid")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email should be valid")
     private String email;
 }

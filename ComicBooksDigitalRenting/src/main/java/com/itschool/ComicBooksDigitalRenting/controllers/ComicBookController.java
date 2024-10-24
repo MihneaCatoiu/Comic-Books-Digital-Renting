@@ -33,7 +33,7 @@ public class ComicBookController {
     }
 
     @Operation(summary = "Get all filtered comic books by title, superhero and availability status")
-    @GetMapping
+    @GetMapping("/title")
     public ResponseEntity<List<ResponseComicBookDTO>> getComicBooks(
             @RequestParam(value = "title", required = false) String title,
             @RequestParam(value = "superhero", required = false) String superhero,
