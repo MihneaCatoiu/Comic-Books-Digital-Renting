@@ -80,5 +80,10 @@ public class ComicBookServiceImpl implements ComicBookService {
     public void deleteComicBookById(Long id) {
         comicBookRepository.deleteById(id);
     }
+
+    @Override
+    public void findComicBookById(long l) {
+
+    }
 }
 

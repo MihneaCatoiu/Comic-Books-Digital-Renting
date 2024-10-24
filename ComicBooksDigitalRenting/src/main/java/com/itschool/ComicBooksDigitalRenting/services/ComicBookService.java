@@ -21,4 +21,5 @@ public interface ComicBookService {
 
     void deleteComicBookById(Long id);
 
+    void findComicBookById(long l);
 }

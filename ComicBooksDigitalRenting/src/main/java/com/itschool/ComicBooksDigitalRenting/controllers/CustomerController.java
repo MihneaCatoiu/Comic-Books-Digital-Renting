@@ -25,7 +25,7 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.createCustomer(requestCustomerDTO));
     }
     @Operation(summary = "Delete a customer by his/hers id")
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomerById(@PathVariable Long id) {
         customerService.deleteCustomerById(id);
         return ResponseEntity.noContent().build();

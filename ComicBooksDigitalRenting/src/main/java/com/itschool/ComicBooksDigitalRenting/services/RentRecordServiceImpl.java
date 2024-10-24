@@ -3,6 +3,7 @@ package com.itschool.ComicBooksDigitalRenting.services;
 import com.itschool.ComicBooksDigitalRenting.exceptions.ComicBookNotFoundException;
 import com.itschool.ComicBooksDigitalRenting.exceptions.CustomerNotFoundException;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseRentRecordDTO;
 import com.itschool.ComicBooksDigitalRenting.models.entities.ComicBook;
 import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import com.itschool.ComicBooksDigitalRenting.models.entities.RentRecord;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -51,5 +53,25 @@ public class RentRecordServiceImpl implements RentRecordService{
 
         rentRecordRepository.save(rentRecord);
         log.info("Rent record updated");
+    }
+
+    @Override
+    public void deleteRentRecordById(Long id) {
+
+    }
+
+    @Override
+    public List<ResponseRentRecordDTO> getRentRecords(Long customerId, Long comicBookId) {
+        return List.of();
+    }
+
+    @Override
+    public Object getRentRecords() {
+        return null;
+    }
+
+    @Override
+    public ResponseRentRecordDTO updateRentRecords(Long id, Object rentRecords) {
+        return null;
     }
 }
