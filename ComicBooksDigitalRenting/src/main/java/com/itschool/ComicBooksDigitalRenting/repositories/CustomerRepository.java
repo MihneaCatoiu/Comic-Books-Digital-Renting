@@ -1,6 +1,5 @@
 package com.itschool.ComicBooksDigitalRenting.repositories;
 
-
 import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

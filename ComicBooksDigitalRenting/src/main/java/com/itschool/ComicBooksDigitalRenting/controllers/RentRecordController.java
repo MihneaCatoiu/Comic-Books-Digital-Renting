@@ -1,6 +1,5 @@
 package com.itschool.ComicBooksDigitalRenting.controllers;
 
-import com.itschool.ComicBooksDigitalRenting.models.dtos.CopiesAvailableDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseRentRecordDTO;

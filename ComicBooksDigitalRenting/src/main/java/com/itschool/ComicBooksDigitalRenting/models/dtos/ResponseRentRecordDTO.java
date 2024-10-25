@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ResponseRentRecordDTO {
+
     private Long customerId;
     private Long comicBookId;
 }

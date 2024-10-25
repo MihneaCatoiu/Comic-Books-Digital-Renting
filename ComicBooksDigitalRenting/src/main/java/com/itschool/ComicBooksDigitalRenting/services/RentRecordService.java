@@ -1,7 +1,6 @@
 package com.itschool.ComicBooksDigitalRenting.services;
 
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseRentRecordDTO;
 
 import java.util.List;

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Map;
-
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Slf4j
