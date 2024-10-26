@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("/api/customers")
 @RestController
 public class CustomerController {
@@ -23,6 +25,20 @@ public class CustomerController {
     public ResponseEntity<ResponseCustomerDTO> createCustomer(@Valid @RequestBody RequestCustomerDTO requestCustomerDTO) {
         return ResponseEntity.ok(customerService.createCustomer(requestCustomerDTO));
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<RequestCustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody RequestCustomerDTO requestCustomerDTO) {
+        return ResponseEntity.ok(customerService.updateCustomer(id, requestCustomerDTO));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<ResponseCustomerDTO>> getCustomer(
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName,
+            @RequestParam(value = "email", required = false) String email){
+        return ResponseEntity.ok(customerService.getCustomer(firstName, lastName, email));
+    }
+
     @Operation(summary = "Delete a customer by his/hers id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomerById(@PathVariable Long id) {

@@ -2,14 +2,11 @@ package com.itschool.ComicBooksDigitalRenting.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itschool.ComicBooksDigitalRenting.exceptions.ComicBookNotFoundException;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.entities.ComicBook;
 import com.itschool.ComicBooksDigitalRenting.repositories.ComicBookRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,26 +24,6 @@ public class ComicBookServiceImpl implements ComicBookService {
     }
 
     @Override
-    public ComicBook createComicBook(ComicBookDTO comicBookDTO) {
-        return null;
-    }
-
-    @Override
-    public ComicBook getComicBookById(Long id) {
-        return null;
-    }
-
-    @Override
-    public ComicBook updateComicBook(Long id, ComicBookDTO comicBookDTO) {
-        return null;
-    }
-
-    @Override
-    public void deleteComicBook(Long id) {
-
-    }
-
-    @Override
     public ResponseComicBookDTO createComicBook(RequestComicBookDTO requestComicBookDTO) {
         ComicBook comicBookEntity = objectMapper.convertValue(requestComicBookDTO, ComicBook.class);
         ComicBook comicBookEntityResponse = comicBookRepository.save(comicBookEntity);
@@ -61,17 +38,11 @@ public class ComicBookServiceImpl implements ComicBookService {
         log.info("Updated comic books copies for id {}", updateComicBook.getId());
         return objectMapper.convertValue(updateComicBook, ResponseComicBookDTO.class);
     }
+
     @Override
-    public List<ResponseComicBookDTO> getComicBooks(String title, String superhero, String availabilityStatus) {
-        Specification<ComicBook> spec = Specification
-                .where(ComicBookSpecification.titleContains(title))
-                .and(ComicBookSpecification.superheroContains(superhero))
-                .and(ComicBookSpecification.availabilityStatusContains(availabilityStatus));
-
-        List<ComicBook> comicBooks = comicBookRepository.findAll((Sort) spec);
-        log.info("{} comic books found", comicBooks.size());
-
-        return comicBooks.stream()
+    public List<ResponseComicBookDTO> getComicBooksByTitle(String title) {
+        return comicBookRepository.getComicBooksByTitle(title)
+                .stream()
                 .map(comicBook -> objectMapper.convertValue(comicBook, ResponseComicBookDTO.class))
                 .toList();
     }
@@ -79,11 +50,6 @@ public class ComicBookServiceImpl implements ComicBookService {
     @Override
     public void deleteComicBookById(Long id) {
         comicBookRepository.deleteById(id);
-    }
-
-    @Override
-    public void findComicBookById(long l) {
-
     }
 }
 

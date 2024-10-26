@@ -8,9 +8,9 @@ public class ResponseComicBookDTO {
 
     private Long id;
     private String title;
-    private String superhero;
     private String authors;
     private String isbn;
+    private String superhero;
     private int copiesAvailable;
     private String publisher;
     private String publicationDate;
@@ -18,4 +18,5 @@ public class ResponseComicBookDTO {
     private String availabilityStatus;
     private String genre;
     private double rentalPrice;
+
 }

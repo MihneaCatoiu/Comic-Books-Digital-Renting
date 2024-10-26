@@ -26,7 +26,7 @@ public class ComicBook {
     @Column(name = "publisher")
     private String publisher;
     @Column(name = "publication_date")
-    private LocalDate publicationDate;
+    private String publicationDate;
     @Column(name = "synopsis")
     private String synopsis;
     @Column(name = "availability_status")

@@ -10,6 +10,8 @@ import com.itschool.ComicBooksDigitalRenting.repositories.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -21,6 +23,7 @@ public class CustomerServiceImpl implements CustomerService {
         this.objectMapper = objectMapper;
         this.customerRepository = customerRepository;
     }
+
     @Override
     public ResponseCustomerDTO createCustomer(RequestCustomerDTO requestCustomerDTO) {
         validateEmailAddress(requestCustomerDTO);
@@ -30,17 +33,27 @@ public class CustomerServiceImpl implements CustomerService {
         return objectMapper.convertValue(customerEntityResponse, ResponseCustomerDTO.class);
     }
 
-    private void validateEmailAddress(RequestCustomerDTO requestCustomerDTO) {
-        Customer customer = customerRepository.findByEmail(requestCustomerDTO.getEmail());
-        if (customer != null) {
-            throw new CustomerDuplicateEmailException("Email address already in use");
-        }
-    }
-
     @Override
     public void deleteCustomerById(Long id) {
         customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException("Customer with id " + id + "was not found"));
         customerRepository.deleteById(id);
         log.info("Customer with id {} was deleted successfully", id);
+    }
+
+    @Override
+    public RequestCustomerDTO updateCustomer(Long id, RequestCustomerDTO requestCustomerDTO) {
+        return null;
+    }
+
+    @Override
+    public List<ResponseCustomerDTO> getCustomer(String firstName, String lastName, String email) {
+        return List.of();
+    }
+
+    private void validateEmailAddress(RequestCustomerDTO requestCustomerDTO) {
+        Customer customer = customerRepository.findByEmail(requestCustomerDTO.getEmail());
+        if (customer != null) {
+            throw new CustomerDuplicateEmailException("Email address already in use");
+        }
     }
 }
