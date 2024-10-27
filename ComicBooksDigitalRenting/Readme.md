@@ -7,14 +7,21 @@ while maintaining an organized record of transactions.
 
 ## Table of Contents
 
-1. Tech Stack
-2. Core Functionalities
-3. Project Structure
-4. Getting Started
-5. API Endpoints
-6. Testing
-7. Error Handling
-8. Contributing
+<!-- TOC -->
+* [Comic Books Digital Renting](#comic-books-digital-renting)
+  * [Table of Contents](#table-of-contents)
+  * [Tech Stack](#tech-stack)
+  * [Core Functionalities](#core-functionalities)
+  * [Project Structure](#project-structure)
+  * [Getting Started](#getting-started)
+  * [API Endpoints](#api-endpoints)
+    * [Comic Book Endpoints](#comic-book-endpoints)
+    * [Customer Endpoints](#customer-endpoints)
+    * [Rent Procedure Endpoints](#rent-procedure-endpoints)
+  * [Testing](#testing)
+  * [Error Handling](#error-handling)
+  * [Contributing](#contributing)
+<!-- TOC -->
 
 ## Tech Stack
 
