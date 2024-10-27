@@ -1,5 +1,6 @@
 package com.itschool.ComicBooksDigitalRenting.controllers;
 
+import com.itschool.ComicBooksDigitalRenting.models.dtos.NewEmailDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestCustomerDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseCustomerDTO;
 import com.itschool.ComicBooksDigitalRenting.services.CustomerService;
@@ -27,16 +28,14 @@ public class CustomerController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<RequestCustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody RequestCustomerDTO requestCustomerDTO) {
-        return ResponseEntity.ok(customerService.updateCustomer(id, requestCustomerDTO));
+    public ResponseEntity<ResponseCustomerDTO> updateCustomerEmail(@PathVariable Long id, @RequestBody NewEmailDTO email) {
+        return ResponseEntity.ok(customerService.updateCustomerEmail(id, email.getEmail()));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{firstName}")
     public ResponseEntity<List<ResponseCustomerDTO>> getCustomer(
-            @RequestParam(value = "firstName", required = false) String firstName,
-            @RequestParam(value = "lastName", required = false) String lastName,
-            @RequestParam(value = "email", required = false) String email){
-        return ResponseEntity.ok(customerService.getCustomer(firstName, lastName, email));
+            @RequestParam String firstName) {
+        return ResponseEntity.ok(customerService.getCustomer(firstName));
     }
 
     @Operation(summary = "Delete a customer by his/hers id")

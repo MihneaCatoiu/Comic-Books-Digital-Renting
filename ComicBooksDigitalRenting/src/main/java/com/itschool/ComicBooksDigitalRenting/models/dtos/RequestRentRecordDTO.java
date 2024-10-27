@@ -1,5 +1,6 @@
 package com.itschool.ComicBooksDigitalRenting.models.dtos;
 
+import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -7,7 +8,7 @@ import lombok.Data;
 public class RequestRentRecordDTO {
 
     @NotBlank(message = "This field cannot be empty.")
-    private Long customerId;
+    private Customer customerId;
     @NotBlank(message = "This field cannot be empty.")
     private Long comicBookId;
 }

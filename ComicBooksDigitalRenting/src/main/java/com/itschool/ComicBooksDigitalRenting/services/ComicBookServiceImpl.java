@@ -27,7 +27,7 @@ public class ComicBookServiceImpl implements ComicBookService {
     public ResponseComicBookDTO createComicBook(RequestComicBookDTO requestComicBookDTO) {
         ComicBook comicBookEntity = objectMapper.convertValue(requestComicBookDTO, ComicBook.class);
         ComicBook comicBookEntityResponse = comicBookRepository.save(comicBookEntity);
-        log.info("Comic book with id {} was successfully saved!");
+        log.info("A new comic book was successfully saved!");
         return objectMapper.convertValue(comicBookEntityResponse, ResponseComicBookDTO.class);
     }
     @Override

@@ -1,5 +1,6 @@
 package com.itschool.ComicBooksDigitalRenting.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Customer {
         private String lastName;
         @Column(name = "email", unique = true)
         private String email;
-        @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-        private List<RentRecord> borrowRecords;
+        @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL)
+        @JsonManagedReference
+        private List<RentRecord> rentRecords;
 }

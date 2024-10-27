@@ -3,7 +3,6 @@ package com.itschool.ComicBooksDigitalRenting.controllers;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.CopiesAvailableDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
-import com.itschool.ComicBooksDigitalRenting.models.entities.ComicBook;
 import com.itschool.ComicBooksDigitalRenting.services.ComicBookService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

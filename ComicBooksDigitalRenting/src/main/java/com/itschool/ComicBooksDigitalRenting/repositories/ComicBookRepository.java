@@ -1,8 +1,6 @@
 package com.itschool.ComicBooksDigitalRenting.repositories;
 
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.entities.ComicBook;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

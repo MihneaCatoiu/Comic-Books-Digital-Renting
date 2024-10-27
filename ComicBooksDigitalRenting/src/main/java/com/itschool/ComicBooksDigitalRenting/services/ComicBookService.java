@@ -9,9 +9,9 @@ public interface ComicBookService {
 
     ResponseComicBookDTO createComicBook(RequestComicBookDTO requestComicBookDTO);
 
-    ResponseComicBookDTO updateComicBookCopies(Long comicBookId, int newCopiesAvailable);
-
     List<ResponseComicBookDTO> getComicBooksByTitle(String title);
+
+    ResponseComicBookDTO updateComicBookCopies(Long comicBookId, int newCopiesAvailable);
 
     void deleteComicBookById(Long id);
 

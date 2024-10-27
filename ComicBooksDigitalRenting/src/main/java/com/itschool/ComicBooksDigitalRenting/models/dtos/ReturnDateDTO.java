@@ -3,9 +3,7 @@ package com.itschool.ComicBooksDigitalRenting.models.dtos;
 import lombok.Data;
 
 @Data
-public class RentRecordDTO {
+public class ReturnDateDTO {
 
-    private Long customerId;
-    private Long comicBookId;
     private String returnDate;
 }

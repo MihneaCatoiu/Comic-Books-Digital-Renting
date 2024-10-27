@@ -3,8 +3,6 @@ package com.itschool.ComicBooksDigitalRenting.models.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @Data
 @Entity
 @Table(name = "comic_books")

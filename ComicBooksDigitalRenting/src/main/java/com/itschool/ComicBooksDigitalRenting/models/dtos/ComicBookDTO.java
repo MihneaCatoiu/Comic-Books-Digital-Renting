@@ -18,8 +18,4 @@ public class ComicBookDTO {
     private String availabilityStatus;
     private String genre;
     private double rentalPrice;
-
-    public Iterable<Long> getAuthorIds() {
-        return null;
-    }
 }

@@ -3,6 +3,8 @@ package com.itschool.ComicBooksDigitalRenting.controllers;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
 import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseRentRecordDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.ReturnDateDTO;
+import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import com.itschool.ComicBooksDigitalRenting.services.RentRecordService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -28,15 +30,14 @@ public class RentRecordController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ResponseRentRecordDTO> updateRentRecords(@PathVariable Long id, @RequestBody RentRecordDTO rentRecordDTO) {
-        return ResponseEntity.ok(rentRecordService.updateRentRecords(id, rentRecordService.getRentRecords()));
+    public ResponseEntity<ResponseRentRecordDTO> updateRentRecords(@PathVariable Long id, @RequestBody ReturnDateDTO returnDate) {
+        return ResponseEntity.ok(rentRecordService.updateRentRecords(id, returnDate.getReturnDate()));
     }
 
-    @GetMapping("/customerId")
+    @GetMapping("/{customerId}")
     public ResponseEntity<List<ResponseRentRecordDTO>> getRentRecords(
-            @RequestParam(value = "customerId", required = false) Long customerId,
-            @RequestParam(value = "comicBookId", required = false) Long comicBookId){
-        return ResponseEntity.ok(rentRecordService.getRentRecords(customerId, comicBookId));
+            @RequestParam Customer customerId){
+        return ResponseEntity.ok(rentRecordService.getRentRecords(customerId));
     }
 
     @Operation(summary = "Delete a record by id")

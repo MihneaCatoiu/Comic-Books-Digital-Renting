@@ -41,13 +41,25 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public RequestCustomerDTO updateCustomer(Long id, RequestCustomerDTO requestCustomerDTO) {
-        return null;
+    public ResponseCustomerDTO updateCustomerEmail(Long customerId, String newEmail) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException("The customer with the id " + customerId + " was not found!"));
+        customer.setEmail(newEmail);
+        Customer updateCustomerEmail = customerRepository.save(customer);
+        log.info("Updated email for id {}", updateCustomerEmail.getId());
+        return objectMapper.convertValue(updateCustomerEmail, ResponseCustomerDTO.class);
     }
 
     @Override
-    public List<ResponseCustomerDTO> getCustomer(String firstName, String lastName, String email) {
-        return List.of();
+    public List<ResponseCustomerDTO> getCustomer(String firstName) {
+        return customerRepository.getCustomer(firstName)
+                .stream()
+                .map(customer -> objectMapper.convertValue(customer, ResponseCustomerDTO.class))
+                .toList();
+    }
+
+    @Override
+    public RequestCustomerDTO updateCustomer(Long id, RequestCustomerDTO requestCustomerDTO) {
+        return null;
     }
 
     private void validateEmailAddress(RequestCustomerDTO requestCustomerDTO) {
