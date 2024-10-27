@@ -15,7 +15,7 @@ public class RentRecord {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "comic_book_id", nullable = false)
-    private ComicBook comicBookId;
+    private ComicBook comicBook;
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     @JsonBackReference

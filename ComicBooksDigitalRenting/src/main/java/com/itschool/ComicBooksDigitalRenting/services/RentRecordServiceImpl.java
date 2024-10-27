@@ -49,7 +49,7 @@ public class RentRecordServiceImpl implements RentRecordService {
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found!"));
 
         RentRecord rentRecord = new RentRecord();
-        rentRecord.setComicBookId(comicBook);
+        rentRecord.setComicBook(comicBook);
         rentRecord.setCustomerId(customer);
         rentRecord.setRentedAt(LocalDateTime.now());
 

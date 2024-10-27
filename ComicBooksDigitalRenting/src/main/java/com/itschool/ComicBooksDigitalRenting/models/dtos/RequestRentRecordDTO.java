@@ -10,5 +10,5 @@ public class RequestRentRecordDTO {
     @NotBlank(message = "This field cannot be empty.")
     private Customer customerId;
     @NotBlank(message = "This field cannot be empty.")
-    private Long comicBookId;
+    private Long comicBook;
 }
