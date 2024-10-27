@@ -1,10 +1,7 @@
 package com.itschool.ComicBooksDigitalRenting.integration_tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestComicBookDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestCustomerDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.RequestRentRecordDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.*;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -15,9 +12,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 

@@ -1,16 +1,12 @@
 package com.itschool.ComicBooksDigitalRenting.controllers;
 
-import com.itschool.ComicBooksDigitalRenting.models.dtos.RentRecordDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseComicBookDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ResponseRentRecordDTO;
-import com.itschool.ComicBooksDigitalRenting.models.dtos.ReturnDateDTO;
+import com.itschool.ComicBooksDigitalRenting.models.dtos.*;
 import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import com.itschool.ComicBooksDigitalRenting.services.RentRecordService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RequestMapping("/api/rent-records")
@@ -18,7 +14,6 @@ import java.util.List;
 public class RentRecordController {
 
     private final RentRecordService rentRecordService;
-
     public RentRecordController(RentRecordService rentRecordService) {
         this.rentRecordService = rentRecordService;
     }

@@ -33,5 +33,4 @@ public class ComicBook {
     private String genre;
     @Column(name = "rental_price")
     private double rentalPrice;
-
 }

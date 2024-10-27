@@ -29,5 +29,4 @@ public class RequestComicBookDTO {
     private String genre;
     @Min(value = 0, message = "The renting cost should be at least 0.")
     private double rentalPrice;
-
 }

@@ -8,7 +8,6 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RequestMapping("/api/customers")
@@ -16,7 +15,6 @@ import java.util.List;
 public class CustomerController {
 
     private final CustomerService customerService;
-
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
@@ -32,10 +30,13 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.updateCustomerEmail(id, email.getEmail()));
     }
 
-    @GetMapping("/{firstName}")
+    @Operation(summary = "Get all filtered customers by their first name, last name and email.")
+    @GetMapping
     public ResponseEntity<List<ResponseCustomerDTO>> getCustomer(
-            @RequestParam String firstName) {
-        return ResponseEntity.ok(customerService.getCustomer(firstName));
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName,
+            @RequestParam(value = "email", required = false) String email) {
+        return ResponseEntity.ok(customerService.getCustomer(firstName, lastName, email));
     }
 
     @Operation(summary = "Delete a customer by his/hers id")

@@ -3,7 +3,6 @@ package com.itschool.ComicBooksDigitalRenting.models.dtos;
 import com.itschool.ComicBooksDigitalRenting.models.entities.ComicBook;
 import com.itschool.ComicBooksDigitalRenting.models.entities.Customer;
 import lombok.Data;
-
 import java.time.LocalDateTime;
 
 @Data

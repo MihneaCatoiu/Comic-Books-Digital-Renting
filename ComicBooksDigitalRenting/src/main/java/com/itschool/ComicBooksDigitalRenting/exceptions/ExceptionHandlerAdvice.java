@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import java.util.Map;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -15,7 +14,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class ExceptionHandlerAdvice {
 
     private final ObjectMapper objectMapper;
-
     public ExceptionHandlerAdvice(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
@@ -24,7 +22,6 @@ public class ExceptionHandlerAdvice {
     public ResponseEntity<String> bookNotFoundException(ComicBookNotFoundException bookNotFoundException) {
         return new ResponseEntity<>(objectToString(Map.of("message", bookNotFoundException.getMessage())), NOT_FOUND);
     }
-
 
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<String> customerDeleteException(CustomerNotFoundException customerNotFoundException) {

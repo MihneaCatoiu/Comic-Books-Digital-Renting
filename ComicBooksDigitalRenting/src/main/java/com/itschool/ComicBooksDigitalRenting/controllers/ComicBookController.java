@@ -17,7 +17,6 @@ public class ComicBookController {
 
     private final ComicBookService comicBookService;
 
-
     public ComicBookController(ComicBookService comicBookService) {
         this.comicBookService = comicBookService;
     }
@@ -34,8 +33,8 @@ public class ComicBookController {
 
     @Operation(summary = "Find a comic book by title")
     @GetMapping("/{title}")
-    public ResponseEntity<List<ResponseComicBookDTO>> getComicBooksByTitle (
-        @RequestParam String title) {
+    public ResponseEntity<List<ResponseComicBookDTO>> getComicBooksByTitle(
+            @RequestParam String title) {
         return ResponseEntity.ok(comicBookService.getComicBooksByTitle(title));
     }
 
